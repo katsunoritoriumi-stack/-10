@@ -26,6 +26,46 @@
             --line2: rgba(232, 224, 216, 0.07);
         }
 
+        /* 親要素：はみ出た分を隠す */
+        #filmreel {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            width: 100%;
+        }
+
+        /* トラック：横一列に並べてアニメーションさせる */
+        .reel-track {
+            display: flex;
+            width: max-content;
+            /* 中身のサイズに合わせる */
+            animation: scroll-left 30s linear infinite;
+            /* 30秒で一周、等速、無限 */
+        }
+
+        /* 各フレームの微調整 */
+        .reel-frame {
+            flex-shrink: 0;
+            display: inline-block;
+        }
+
+        /* アニメーションの内容：左へ動かす */
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+                /* 2セット用意した場合は-50%にする */
+            }
+        }
+
+        /* マウスホバー時に停止させる（お好みで） */
+        .reel-track:hover {
+            animation-play-state: paused;
+        }
+
         *,
         *::before,
         *::after {
@@ -1840,7 +1880,7 @@
             <span class="hero-pre">A Multidimensional Novel &nbsp;·&nbsp; 多次元小説 &nbsp;·&nbsp; 馬上精彦</span>
             <div class="hero-tc"><span class="hero-en">Last<br>Resort</span></div>
             <div class="hero-tc2"><span class="hero-jp">ラストリゾート</span></div>
-            <p class="hero-tagline">時間・空間・意識の境界が溶ける場所。最後の手段か、最後の楽園か。<br>サブが先に来て、メインが後から世界を塗り替える——多次元の仕掛け。</p>
+            <p class="hero-tagline">時間・空間・意識の境界が溶ける場所<br>それは最後の楽園か…</p>
             <div class="hero-cta-row">
                 <a href="#substories" class="hero-btn"><span>サブストーリーを読む — 今すぐ公開中</span></a>
                 <a href="#project" class="hero-sub-link">プロジェクトについて ↓</a>
@@ -1857,7 +1897,7 @@
         <div class="strip-ov"></div>
         <div class="strip-cap rv">
             <span class="cap-lbl">The Archive of Dimensions</span>
-            <p class="cap-txt">古と未来が交差する場所に、物語は眠っている。</p>
+            <p class="cap-txt">古と未来が交差する場所に、物語は眠っている</p>
         </div>
     </div>
 
@@ -1872,10 +1912,10 @@
             <div class="rv">
                 <h2 class="sec-h2">新たな哲学の形<br>
                     <p class="sec-p">
-                        「ラストリゾート」は、従来の小説とはまったく異なる構造を持つ。メインストーリーという背骨があり、そこから枝分かれするサブストーリーがある——というのが普通の考え方だ。しかし馬上精彦の多次元小説は、その順序を意図的に逆転させている。
+                        「ラストリゾート」は、従来の小説とはまったく異なる構造を持つ。稀代の空間デザイナー馬上精彦が世に放つ精神を揺さぶる多次元小説
                     </p>
                     <div class="pull">
-                        <p>サブストーリーを先に公開し、メインストーリーを後から世界に放つ。読む者の脳内で、二本の物語が遡及的に再結合し、一気に多次元の宇宙が構築される——それが「仕掛け」の本質だ。</p>
+                        <p>読む者の脳内で、三つの物語が遡及的に癒合し、一気に多次元の宇宙が展開する</p>
                     </div>
                     <p class="sec-p">
                         現在公開されている二本のサブストーリーは、単体でも深く、それぞれがユニークな世界観と哲学を持つ独立した作品だ。しかしそれは同時に、間もなく公開されるメインストーリーへの「伏線」であり「引用的構造」でもある。メインを読んだとき、サブの意味が根底から変容する。
@@ -1886,7 +1926,7 @@
                             <div>
                                 <div class="stl-title">サブストーリー — 現在公開中</div>
                                 <p class="stl-text">
-                                    二本のサブストーリーがnoteとyoutubeにて公開中。単独で読んでも<em>深く、強く</em>、独自の宇宙観を持つ完結した作品。読者はここから「ラストリゾート」の世界に入る。
+                                    二本のサブストーリーがnoteとyoutubeにて公開中。単独で読んでも<em>深く、強く</em>、独自の宇宙観を持つ完結した作品。読者はここから「ラストリゾート」の世界に入り込む…
                                 </p>
                             </div>
                         </div>
@@ -1903,7 +1943,7 @@
                             <div>
                                 <div class="stl-title">多次元の完成 — 読者の脳内で</div>
                                 <p class="stl-text">
-                                    三本の物語が交差し、単一の次元では捉えきれない宇宙が完成する。<em>馬上精彦の哲学・世界観・人生訓の集大成</em>として、読む者の意識を組み替える。</p>
+                                    三つの物語が交差し、単一の次元では捉えきれない宇宙を垣間見る<em>馬上精彦の哲学・世界観・人生訓の集大成</em>として、読む者の意識を組み替える。</p>
                             </div>
                         </div>
                     </div>
@@ -1928,7 +1968,21 @@
             </div>
             <div class="reel-frame"><img src="photo12.jpg" alt="画像12"><span class="reel-cap">The Sound Ceremony</span>
             </div>
+            <div class="reel-frame"><img src="photo4.jpg" alt="画像4"><span class="reel-cap">The Convergence</span></div>
+            <div class="reel-frame"><img src="photo5.jpg" alt="画像5"><span class="reel-cap">The Forest Protocol</span>
+            </div>
+            <div class="reel-frame"><img src="photo6.jpg" alt="画像6"><span class="reel-cap">The Crystal Object</span>
+            </div>
+            <div class="reel-frame"><img src="photo7.jpg" alt="画像7"><span class="reel-cap">The Tuning</span></div>
+            <div class="reel-frame"><img src="photo8.jpg" alt="画像8"><span class="reel-cap">The Dragon Bar</span></div>
+            <div class="reel-frame"><img src="photo9.jpg" alt="画像9"><span class="reel-cap">The Witness</span></div>
+            <div class="reel-frame"><img src="photo10.jpg" alt="画像10"><span class="reel-cap">The Commission</span></div>
+            <div class="reel-frame"><img src="photo11.jpg" alt="画像11"><span class="reel-cap">The Ultimate Return</span>
+            </div>
+            <div class="reel-frame"><img src="photo12.jpg" alt="画像12"><span class="reel-cap">The Sound Ceremony</span>
+            </div>
         </div>
+    </div>
     </div>
 
     <!-- ★ ANIM 1: 墨流し詩 -->
@@ -1960,7 +2014,7 @@
             <span class="eyebrow">Sub Stories — Now Publishing</span>
             <div class="live-badge"><span class="ldot"></span>現在公開中 · Live on Note</div>
             <h2 class="sec-h2" style="margin-bottom:1.4rem">二本のサブストーリー<br><em>今すぐ見る！</em></h2>
-            <p>単体でも完結した深みを持つ二本の物語。しかしそれは、メインストーリーという背骨が登場したとき、新たな意味の層を帯びる「引用的構造」でもある。まずこの二本から、ラストリゾートの世界に入れ。</p>
+            <p>単体でも完結した深みを持つ二つの物語。しかしそれは、メインストーリーが登場したとき、新たな意味の層を帯びる「引用的構造」でもある。まずこの二本から、ラストリゾートの世界へ</p>
         </div>
         <div class="sub-dual">
             <div class="sub-card">
@@ -2008,7 +2062,7 @@
         <div class="wd-ov"></div>
         <canvas id="rippleCvs"></canvas>
         <div class="wd-ctr">
-            <p class="wd-txt">三つの物語が水面で出会う——</p>
+            <p class="wd-txt">三つの物語が脳内で出会い——</p>
             <p class="wd-txt" style="transition-delay:.28s">本当の旅が始まる…</p>
             <span class="wd-sub">When the main story arrives, the mirror breaks.</span>
         </div>
@@ -2024,14 +2078,14 @@
             <div class="ms-cnt rv-r">
                 <div class="ms-badge"><span class="ms-bdot"></span>Main Story — Coming Soon</div>
                 <div class="ms-num">∞</div>
-                <div class="ms-title">背骨となる<br>メインストーリー</div>
+                <div class="ms-title">全てを繋ぐ<br>メインストーリー</div>
                 <span class="ms-en">The Main Continuum — The Spine of Everything</span>
                 <p class="ms-p">サブストーリーが「科学」と「意味」を問うとするなら、メインストーリーは「存在」と「宇宙の構造」を問う。</p>
                 <p class="ms-p">
                     馬上精彦が50年以上かけて蓄積した空間思想・哲学・人生訓のすべてが、このメインストーリーに注入される。それが公開された瞬間、先に読んでいたサブストーリーの意味は遡及的に書き換わり、三本の物語が一気に多次元的に結合する。
                 </p>
                 <div class="ms-teaser">
-                    <p>「サブを読んだあなたは、既にメインの世界に片足を踏み入れている。あとは扉が開くのを待つだけだ」</p>
+                    <p>「サブストーリーを読んだあなたは、ラストリゾートに片足を踏み入れている</p>
                 </div>
                 <div class="ms-lock">⊘ &nbsp;間もなく公開 &nbsp;·&nbsp; メインストーリーは近い</div>
             </div>
@@ -2097,7 +2151,7 @@
         <div class="strip-ov"></div>
         <div class="strip-cap rv">
             <span class="cap-lbl">The Encounter</span>
-            <p class="cap-txt">二人が向き合うとき、次元の扉が開く</p>
+            <p class="cap-txt">二人の出会いが扉を開いた</p>
         </div>
     </div>
 
