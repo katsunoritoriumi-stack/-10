@@ -194,8 +194,8 @@
             inset: 0;
             background-size: cover;
             background-position: center;
-            /* 明るさをさらにアップ */
-            filter: brightness(.55) saturate(.9);
+            /* 明るさをアップしつつテキスト視認性を保持 */
+            filter: brightness(.7) saturate(.95);
             transform: scale(1.04);
             animation: heroZoom 22s linear infinite alternate
         }
@@ -471,8 +471,8 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            /* 明るさをさらにアップ */
-            filter: brightness(.65) saturate(.85)
+            /* 明るさをアップしつつテキスト視認性を保持 */
+            filter: brightness(.8) saturate(.95)
         }
 
         .strip-ov {
@@ -723,8 +723,8 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            /* 明るさをさらにアップ */
-            filter: brightness(.8) saturate(.85);
+            /* 明るさをアップしつつテキスト視認性を保持 */
+            filter: brightness(.9) saturate(1.0);
             transition: filter .5s, transform .6s
         }
 
@@ -763,8 +763,8 @@
             inset: 0;
             background-size: cover;
             background-position: center;
-            /* 明るさをさらにアップ */
-            filter: brightness(.35) saturate(.65)
+            /* 明るさをアップしつつテキスト視認性を保持 */
+            filter: brightness(.5) saturate(.8)
         }
 
         .enso-svg {
@@ -886,14 +886,14 @@
             inset: 0;
             background-size: cover;
             background-position: center;
-            /* 明るさをさらにアップ */
-            filter: brightness(.5) saturate(.7);
+            /* 明るさをアップしつつテキスト視認性を保持 */
+            filter: brightness(.65) saturate(.85);
             transition: filter 1s
         }
 
         .sub-card:hover .sub-bg {
             /* ホバー時はさらに明るく */
-            filter: brightness(.65) saturate(.85)
+            filter: brightness(.8) saturate(.95)
         }
 
         .sub-gl {
@@ -916,11 +916,59 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            border-right: 1px solid var(--line2)
+            border-right: 1px solid var(--line2);
+            text-decoration: none;
+            /* Add this because it's now wrapped in <a> */
+            color: inherit;
         }
 
         .sub-card:last-child .sub-cnt {
             border-right: none
+        }
+
+        /* Interactive Play Icon Overlay */
+        .sub-play-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 3;
+            opacity: 0;
+            background: rgba(10, 11, 16, 0.4);
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .sub-play-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.3);
+            transform: scale(0.8);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .sub-play-icon::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 10px 0 10px 16px;
+            border-color: transparent transparent transparent rgba(255, 255, 255, 0.8);
+            margin-left: 4px;
+        }
+
+        .sub-card:hover .sub-play-overlay {
+            opacity: 1;
+        }
+
+        .sub-card:hover .sub-play-icon {
+            transform: scale(1);
         }
 
         .sub-badge {
@@ -1119,8 +1167,8 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            /* 明るさをさらにアップ */
-            filter: brightness(.45) saturate(.7)
+            /* 明るさをアップしつつテキスト視認性を保持 */
+            filter: brightness(.6) saturate(.85)
         }
 
         .wd-ov {
@@ -1203,8 +1251,8 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            /* 明るさをさらにアップ */
-            filter: brightness(.55) saturate(.75)
+            /* 明るさをアップしつつテキスト視認性を保持 */
+            filter: brightness(.7) saturate(.85)
         }
 
         .ms-vis-ov {
@@ -1608,8 +1656,8 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            /* 明るさをさらにアップ */
-            filter: brightness(.4) saturate(.65)
+            /* 明るさをアップしつつテキスト視認性を保持 */
+            filter: brightness(.55) saturate(.8)
         }
 
         .portal-ov {
@@ -2133,42 +2181,32 @@
             <p>単体でも完結した深みを持つ二つの物語。しかしそれは、メインストーリーが登場したとき、新たな意味の層を帯びる「引用的構造」でもある。まずこの二本から、ラストリゾートの世界へ</p>
         </div>
         <div class="sub-dual">
-            <div class="sub-card">
+            <a href="https://youtu.be/zGmsdWIlzHQ" target="_blank" rel="noopener" class="sub-card"
+                style="display:block; text-decoration:none;">
                 <div class="sub-bg" style="background-image:url('photo20.jpg')"> </div>
                 <div class="sub-gl"></div>
+                <div class="sub-play-overlay">
+                    <div class="sub-play-icon"></div>
+                </div>
                 <div class="sub-cnt">
-                    <div class="sub-badge"><span class="sub-bdot"></span>Sub Story 1 — 副軸・第一章</div>
-                    <span class="sub-num">I</span>
                     <div class="sub-title">聖なる波動<br>Holy Vibes</div>
                     <div class="sub-en">The Tuning Fork & The Archive of Memory</div>
                     <p class="sub-body"></p>
-                    <div class="sub-tags">
-                        <span class="sub-tag">量子音響技術</span><span class="sub-tag">意識の変容</span>
-                        <span class="sub-tag">技術の特異点</span><span class="sub-tag">総合的知性</span>
-                    </div>
-                    <a href="https://youtu.be/zGmsdWIlzHQ" target="_blank" rel="noopener"
-                        class="sub-cta"><span>サブストーリー1/聖なる波動
-                            Holy Vibes. &nbsp;→</span></a>
                 </div>
-            </div>
-            <div class="sub-card">
+            </a>
+            <a href="https://youtu.be/E3llFxpNcA8" target="_blank" rel="noopener" class="sub-card"
+                style="display:block; text-decoration:none;">
                 <div class="sub-bg" style="background-image:url('photo21.jpg')"> </div>
                 <div class="sub-gr"></div>
+                <div class="sub-play-overlay">
+                    <div class="sub-play-icon"></div>
+                </div>
                 <div class="sub-cnt">
-                    <div class="sub-badge"><span class="sub-bdot"></span>Sub Story 2 — 副軸・第二章</div>
-                    <span class="sub-num">II</span>
                     <div class="sub-title">崑崙茶の使者<br>Messenger of Kunlun Tea</div>
                     <div class="sub-en">The Sound Ceremony & Those Who Awaken</div>
                     <p class="sub-body"></p>
-                    <div class="sub-tags">
-                        <span class="sub-tag">富の還流</span><span class="sub-tag">人生の意味</span>
-                        <span class="sub-tag">放棄する喜び</span><span class="sub-tag">至福の聖茶</span>
-                    </div>
-                    <a href="https://youtu.be/E3llFxpNcA8" target="_blank" rel="noopener"
-                        class="sub-cta"><span>サブストーリー２/崑崙茶の使者
-                            &nbsp;→</span></a>
                 </div>
-            </div>
+            </a>
         </div>
     </section>
 
@@ -2282,7 +2320,7 @@
                     1969年大学卒業後、パリ、ロンドンへ6年間留学。パリ５月革命、スウィンギングロンドン、ヒッピートレイルなどを現場体験。帰国後「センチメンタル・シティ・スタジオ」を設立し、多くの店舗を作り日本初の「空間プロデューサー」と呼ばれた。
                 </p>
                 <p class="au-p">
-                    1970〜90年代のカフェバーブーム、エスニックブームなどカルチャーの仕掛け人として「インテリアデザイン界のYMO」と評された。その後伊豆大島に移住しオルタナティブ建築で住宅を自作し、オーガニックな生活を始める。そして藁で作るエコハウス「ストローベイルハウス」を普及させるNPO活動を行う。2912年2棟目の
+                    1970〜90年代のカフェバーブーム、エスニックブームなどカルチャーの仕掛け人として「インテリアデザイン界のYMO」と評された。その後伊豆大島に移住しオルタナティブ建築で住宅を自作し、オーガニックな生活を始める。そして藁で作るエコハウス「ストローベイルハウス」を普及させるNPO活動を行う。2012年2棟目の
                     自作建築Holy Hillを那須高原に作り、HGIS（人間の総合的知性研究会）を主宰し現在に至る。
                 </p>
                 <div class="au-stmt">
