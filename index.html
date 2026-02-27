@@ -12,54 +12,46 @@
         rel="stylesheet">
     <style>
         :root {
-            --bg: #06070a;
-            --bg1: #0c0d11;
-            --bg2: #10111a;
-            --ink: #e4e0d8;
-            --ink2: #908b84;
-            --ink3: #48453f;
-            --gold: #b8935a;
-            --gold2: #d4b07a;
-            --gold3: rgba(184, 147, 90, 0.1);
-            --navy: #0e1422;
-            --line: rgba(184, 147, 90, 0.16);
-            --line2: rgba(232, 224, 216, 0.07);
+            /* さらに明るく、視認性を高めた背景色 */
+            --bg: #12141c;
+            --bg1: #1a1c26;
+            --bg2: #1e222e;
+            /* 文字色をさらに白に近づけてくっきりさせる */
+            --ink: #ffffff;
+            --ink2: #d1cdc5;
+            --ink3: #8a857d;
+            --gold: #d4b07a;
+            --gold2: #eed2a6;
+            --gold3: rgba(184, 147, 90, 0.2);
+            --navy: #1b253d;
+            --line: rgba(184, 147, 90, 0.35);
+            --line2: rgba(232, 224, 216, 0.18);
         }
 
         /* 親要素：はみ出た分を隠す */
-        /* --- ここから書き換え --- */
         #filmreel {
             padding: 5rem 0;
-            /* 上下の余白を広げ、左右を0にして画面端まで広げる */
             width: 100vw;
-            /* 画面の横幅いっぱいに使う */
             overflow: hidden;
             white-space: nowrap;
             position: relative;
             left: 50%;
-            /* 画面中央に配置するためのテクニック */
             transform: translateX(-50%);
         }
 
         .reel-track {
             display: flex;
             gap: 20px;
-            /* 画像と画像の間隔をきれいに保つ */
             width: max-content;
             padding: 0;
-            animation: scroll-left 40s linear infinite;
-            /* 30sから40sに。少しゆっくり優雅に */
+            animation: scroll-left 57s linear infinite;
         }
 
-        /* --- ここまで --- */
-
-        /* 各フレームの微調整 */
         .reel-frame {
             flex-shrink: 0;
             display: inline-block;
         }
 
-        /* アニメーションの内容：左へ動かす */
         @keyframes scroll-left {
             0% {
                 transform: translateX(0);
@@ -67,11 +59,9 @@
 
             100% {
                 transform: translateX(-50%);
-                /* 2セット用意した場合は-50%にする */
             }
         }
 
-        /* マウスホバー時に停止させる（お好みで） */
         .reel-track:hover {
             animation-play-state: paused;
         }
@@ -145,7 +135,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: linear-gradient(180deg, rgba(6, 7, 10, .9) 0%, transparent 100%)
+            background: linear-gradient(180deg, rgba(10, 11, 16, .9) 0%, transparent 100%)
         }
 
         .nav-logo {
@@ -204,7 +194,8 @@
             inset: 0;
             background-size: cover;
             background-position: center;
-            filter: brightness(.27) saturate(.8);
+            /* 明るさをさらにアップ */
+            filter: brightness(.55) saturate(.9);
             transform: scale(1.04);
             animation: heroZoom 22s linear infinite alternate
         }
@@ -218,7 +209,8 @@
         .hero-vignette {
             position: absolute;
             inset: 0;
-            background: radial-gradient(ellipse 80% 80% at 50% 50%, transparent 28%, rgba(6, 7, 10, .88) 100%)
+            /* ビネットの黒も少し弱める */
+            background: radial-gradient(ellipse 80% 80% at 50% 50%, transparent 28%, rgba(10, 11, 16, .8) 100%)
         }
 
         .hero-top-rule {
@@ -257,10 +249,20 @@
         }
 
         .hero-logo {
-            width: min(130px, 20vw);
+            display: block;
             margin: 0 auto 2.5rem;
+            width: 80px !important;
+            height: auto !important;
             opacity: 0;
-            animation: fadeBlur 2s .4s forwards
+            animation: fadeBlur 2s .4s forwards;
+            margin-top: 2rem !important;
+            margin-bottom: 2rem !important;
+        }
+
+        .hero-logo img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
         @keyframes fadeBlur {
@@ -300,7 +302,7 @@
             line-height: .88;
             letter-spacing: -.03em;
             color: transparent;
-            -webkit-text-stroke: 1px rgba(228, 224, 216, .22);
+            -webkit-text-stroke: 1px rgba(228, 224, 216, .35);
             display: block;
             transform: translateY(110%);
             animation: slideUp 2s .7s cubic-bezier(.16, 1, .3, 1) forwards
@@ -469,13 +471,14 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            filter: brightness(.38) saturate(.75)
+            /* 明るさをさらにアップ */
+            filter: brightness(.65) saturate(.85)
         }
 
         .strip-ov {
             position: absolute;
             inset: 0;
-            background: linear-gradient(180deg, rgba(6, 7, 10, .7) 0%, transparent 30%, transparent 70%, rgba(6, 7, 10, .7) 100%)
+            background: linear-gradient(180deg, rgba(10, 11, 16, .7) 0%, transparent 30%, transparent 70%, rgba(10, 11, 16, .7) 100%)
         }
 
         .strip-cap {
@@ -599,7 +602,7 @@
             font-family: "DM Serif Display", serif;
             font-size: 8rem;
             color: transparent;
-            -webkit-text-stroke: 1px rgba(184, 147, 90, .07);
+            -webkit-text-stroke: 1px rgba(184, 147, 90, .15);
             line-height: 1;
             margin-bottom: .4rem
         }
@@ -720,12 +723,14 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            filter: brightness(.5) saturate(.65);
+            /* 明るさをさらにアップ */
+            filter: brightness(.8) saturate(.85);
             transition: filter .5s, transform .6s
         }
 
         .reel-frame:hover img {
-            filter: brightness(.72) saturate(.88);
+            /* ホバー時は元の明るさに */
+            filter: brightness(1.0) saturate(1.0);
             transform: scale(1.03)
         }
 
@@ -737,7 +742,7 @@
             font-style: italic;
             font-size: .6rem;
             letter-spacing: .28em;
-            color: rgba(184, 147, 90, .65);
+            color: rgba(184, 147, 90, .8);
             text-transform: uppercase
         }
 
@@ -758,7 +763,8 @@
             inset: 0;
             background-size: cover;
             background-position: center;
-            filter: brightness(.12) saturate(.5)
+            /* 明るさをさらにアップ */
+            filter: brightness(.35) saturate(.65)
         }
 
         .enso-svg {
@@ -773,7 +779,7 @@
 
         .enso-c {
             fill: none;
-            stroke: rgba(184, 147, 90, .16);
+            stroke: rgba(184, 147, 90, .25);
             stroke-width: .8;
             stroke-dasharray: 1520;
             stroke-dashoffset: 1520;
@@ -862,26 +868,6 @@
             margin-bottom: 1.5rem
         }
 
-        .ldot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--gold2);
-            animation: lp 2s infinite
-        }
-
-        @keyframes lp {
-
-            0%,
-            100% {
-                opacity: 1
-            }
-
-            50% {
-                opacity: .3
-            }
-        }
-
         .sub-dual {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -900,24 +886,26 @@
             inset: 0;
             background-size: cover;
             background-position: center;
-            filter: brightness(.2) saturate(.55);
+            /* 明るさをさらにアップ */
+            filter: brightness(.5) saturate(.7);
             transition: filter 1s
         }
 
         .sub-card:hover .sub-bg {
-            filter: brightness(.3) saturate(.72)
+            /* ホバー時はさらに明るく */
+            filter: brightness(.65) saturate(.85)
         }
 
         .sub-gl {
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(139, 26, 46, .2) 0%, transparent 60%)
+            background: linear-gradient(135deg, rgba(139, 26, 46, .25) 0%, transparent 60%)
         }
 
         .sub-gr {
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(14, 20, 34, .4) 0%, transparent 60%)
+            background: linear-gradient(135deg, rgba(14, 20, 34, .5) 0%, transparent 60%)
         }
 
         .sub-cnt {
@@ -948,7 +936,7 @@
         }
 
         .sub-card:nth-child(1) .sub-badge {
-            color: rgba(196, 34, 64, .8)
+            color: rgba(210, 50, 80, .9)
         }
 
         .sub-card:nth-child(2) .sub-badge {
@@ -963,7 +951,7 @@
         }
 
         .sub-card:nth-child(1) .sub-bdot {
-            background: rgba(196, 34, 64, .8)
+            background: rgba(210, 50, 80, .9)
         }
 
         .sub-card:nth-child(2) .sub-bdot {
@@ -981,11 +969,11 @@
         }
 
         .sub-card:nth-child(1) .sub-num {
-            -webkit-text-stroke: 1px rgba(196, 34, 64, .18)
+            -webkit-text-stroke: 1px rgba(210, 50, 80, .25)
         }
 
         .sub-card:nth-child(2) .sub-num {
-            -webkit-text-stroke: 1px rgba(184, 147, 90, .16)
+            -webkit-text-stroke: 1px rgba(184, 147, 90, .25)
         }
 
         .sub-title {
@@ -998,7 +986,7 @@
         }
 
         .sub-card:nth-child(1) .sub-title {
-            color: rgba(228, 200, 200, .9)
+            color: rgba(240, 220, 220, 1)
         }
 
         .sub-card:nth-child(2) .sub-title {
@@ -1020,7 +1008,7 @@
             font-weight: 300;
             max-width: 340px;
             margin-bottom: 1.8rem;
-            opacity: .8
+            opacity: .9
         }
 
         .sub-tags {
@@ -1041,18 +1029,18 @@
         }
 
         .sub-card:nth-child(1) .sub-tag {
-            border-color: rgba(196, 34, 64, .2);
-            color: rgba(196, 34, 64, .6)
+            border-color: rgba(210, 50, 80, .3);
+            color: rgba(210, 50, 80, .8)
         }
 
         .sub-card:nth-child(2) .sub-tag {
-            border-color: rgba(184, 147, 90, .2);
+            border-color: rgba(184, 147, 90, .3);
             color: var(--gold)
         }
 
         .sub-card:nth-child(1) .sub-tag:hover {
-            border-color: rgba(196, 34, 64, .7);
-            color: rgba(220, 80, 100, 1)
+            border-color: rgba(210, 50, 80, .8);
+            color: rgba(240, 100, 120, 1)
         }
 
         .sub-card:nth-child(2) .sub-tag:hover {
@@ -1077,12 +1065,12 @@
         }
 
         .sub-card:nth-child(1) .sub-cta {
-            border-color: rgba(196, 34, 64, .35);
-            color: rgba(196, 34, 64, .8)
+            border-color: rgba(210, 50, 80, .4);
+            color: rgba(210, 50, 80, .9)
         }
 
         .sub-card:nth-child(2) .sub-cta {
-            border-color: rgba(184, 147, 90, .35);
+            border-color: rgba(184, 147, 90, .4);
             color: var(--gold)
         }
 
@@ -1096,7 +1084,7 @@
         }
 
         .sub-card:nth-child(1) .sub-cta::before {
-            background: rgba(196, 34, 64, .85)
+            background: rgba(210, 50, 80, .9)
         }
 
         .sub-card:nth-child(2) .sub-cta::before {
@@ -1131,7 +1119,8 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: brightness(.18) saturate(.5)
+            /* 明るさをさらにアップ */
+            filter: brightness(.45) saturate(.7)
         }
 
         .wd-ov {
@@ -1143,7 +1132,7 @@
         #rippleCvs {
             position: absolute;
             inset: 0;
-            opacity: .55
+            opacity: .6
         }
 
         .wd-ctr {
@@ -1214,7 +1203,8 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            filter: brightness(.25) saturate(.55)
+            /* 明るさをさらにアップ */
+            filter: brightness(.55) saturate(.75)
         }
 
         .ms-vis-ov {
@@ -1235,7 +1225,7 @@
             align-items: center;
             gap: .65rem;
             padding: .32rem 1rem;
-            border: 1px solid rgba(184, 147, 90, .28);
+            border: 1px solid rgba(184, 147, 90, .35);
             font-family: "Cormorant", serif;
             font-size: .6rem;
             letter-spacing: .4em;
@@ -1256,7 +1246,7 @@
             font-family: "DM Serif Display", serif;
             font-size: 9rem;
             color: transparent;
-            -webkit-text-stroke: 1px rgba(184, 147, 90, .09);
+            -webkit-text-stroke: 1px rgba(184, 147, 90, .18);
             line-height: 1;
             margin-bottom: .9rem
         }
@@ -1342,7 +1332,7 @@
         }
 
         .ph-card:hover {
-            background: rgba(184, 147, 90, .022)
+            background: rgba(184, 147, 90, .04)
         }
 
         .ph-card::before {
@@ -1366,7 +1356,7 @@
             font-family: "DM Serif Display", serif;
             font-size: 5rem;
             color: transparent;
-            -webkit-text-stroke: 1px rgba(184, 147, 90, .09);
+            -webkit-text-stroke: 1px rgba(184, 147, 90, .15);
             line-height: 1;
             margin-bottom: 1.4rem;
             display: block
@@ -1406,7 +1396,7 @@
             font-family: "Shippori Mincho B1", serif;
             font-size: .81rem;
             line-height: 1.95;
-            color: rgba(184, 147, 90, .52);
+            color: rgba(184, 147, 90, .7);
             font-style: italic
         }
 
@@ -1618,13 +1608,14 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: brightness(.11) saturate(.45)
+            /* 明るさをさらにアップ */
+            filter: brightness(.4) saturate(.65)
         }
 
         .portal-ov {
             position: absolute;
             inset: 0;
-            background: radial-gradient(ellipse 72% 72% at 50% 50%, transparent 18%, rgba(6, 7, 10, .92) 100%)
+            background: radial-gradient(ellipse 72% 72% at 50% 50%, transparent 18%, rgba(10, 11, 16, .85) 100%)
         }
 
         .portal-cnt {
@@ -1638,7 +1629,7 @@
         .portal-logo {
             width: min(85px, 14vw);
             margin: 0 auto 2.4rem;
-            opacity: .8
+            opacity: .9
         }
 
         .portal-h2 {
@@ -1669,7 +1660,7 @@
             border: 1px solid var(--gold);
             font-family: "Shippori Mincho B1", serif;
             font-size: .9rem;
-            letter-spacing: .22em;
+            letter-spacing: .2em;
             color: var(--gold2);
             text-decoration: none;
             position: relative;
@@ -1907,7 +1898,6 @@
             }
         }
 
-        /* 既存の丸ドット（ldot/ms-bdot）は不要になるので、非表示にするか削除してもOKです */
         .ldot,
         .ms-bdot {
             display: none;
@@ -1920,18 +1910,11 @@
             top: 5rem;
             writing-mode: vertical-rl;
             font-family: "Shippori Mincho B1", serif;
-            /* --- 修正ポイント --- */
             font-size: 2rem;
-            /* 1.2remから2remへ大きく */
             font-weight: 600;
-            /* 太くする */
             letter-spacing: 0.6em;
-            /* 字間をもっと広げて優雅に */
             color: var(--gold2);
-            /* 色をはっきりした金へ */
             opacity: 0.8;
-            /* 透明度を下げてくっきりさせる */
-            /* ------------------ */
             z-index: 10;
             pointer-events: none;
         }
@@ -1941,7 +1924,6 @@
             background: linear-gradient(to bottom, transparent, rgba(184, 147, 90, 0.05), transparent);
             padding: 20px 5px;
             border-right: 1px solid rgba(184, 147, 90, 0.2);
-            /* 右側に繊細な線を一本入れる */
         }
 
         /* 墨が滲み出るようなフェードイン（revealとの組み合わせ） */
@@ -1952,7 +1934,6 @@
         .vertical-phrase.rv.on {
             opacity: 0.6;
             transform: translateY(-20px);
-            /* 少し上に浮き上がる動き */
         }
 
         /* モバイル端末では重なってしまう可能性があるため非表示にする */
@@ -1960,6 +1941,20 @@
             .vertical-phrase {
                 display: none;
             }
+        }
+
+        /* ロゴのサイズを強制的に指定する */
+        .hero-logo,
+        .hero-logo img {
+            width: 320px !important;
+            height: auto !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+
+        .hero-logo {
+            margin-top: 2rem !important;
+            margin-bottom: 2rem !important;
         }
     </style>
 </head>
@@ -1969,7 +1964,6 @@
     <div id="cur"></div>
     <div id="cur-o"></div>
 
-    <!-- NAV -->
     <nav>
         <div class="nav-logo">
             <img src="photo1.jpg" alt="画像1">
@@ -1984,17 +1978,17 @@
         </ul>
     </nav>
 
-    <!-- HERO -->
     <section id="hero">
         <div class="hero-bg"
             style="background-image:url('photo18.jpg'); height: 100vh; width: 100%; background-size: cover; background-position: center;">
-        </div>
         </div>
         <div class="hero-vignette"></div>
         <div class="hero-top-rule"></div>
         <div class="hero-bot-rule"></div>
         <div class="hero-center">
-            <img class="hero-logo" src="photo2.jpg" alt="画像2">
+            <div class="hero-logo">
+                <img src="photo100.jpg" alt="Logo">
+            </div>
             <span class="hero-pre">A Multidimensional Novel &nbsp;·&nbsp; 多次元小説 &nbsp;·&nbsp; 馬上精彦</span>
             <div class="hero-tc"><span class="hero-en">Last<br>Resort</span></div>
             <div class="hero-tc2"><span class="hero-jp">ラストリゾート</span></div>
@@ -2009,7 +2003,6 @@
         </div>
     </section>
 
-    <!-- SCENE STRIP 1 -->
     <div class="scene-strip">
         <img src="photo3.jpg" alt="画像3">
         <div class="strip-ov"></div>
@@ -2019,7 +2012,6 @@
         </div>
     </div>
 
-    <!-- PROJECT -->
     <section id="project" class="sec">
 
         <div class="vertical-phrase rv">
@@ -2074,7 +2066,6 @@
         </div>
     </section>
 
-    <!-- FILM REEL -->
     <div id="filmreel">
         <span class="reel-lbl">Scenes from the Novel Universe</span>
         <div class="reel-track" id="reelTrack">
@@ -2106,9 +2097,7 @@
             </div>
         </div>
     </div>
-    </div>
 
-    <!-- ★ ANIM 1: 墨流し詩 -->
     <section id="inkpoem">
         <div class="ink-bg" style="background-image:url('photo19.jpg')"> </div>
         <svg class="enso-svg" viewBox="0 0 400 400" fill="none">
@@ -2131,7 +2120,6 @@
         </div>
     </section>
 
-    <!-- SUB STORIES -->
     <section id="substories" class="sec sec-dark">
         <div class="sub-intro rv">
             <span class="eyebrow">Sub Stories — Now Publishing</span>
@@ -2184,7 +2172,6 @@
         </div>
     </section>
 
-    <!-- ★ ANIM 2: 水鏡 -->
     <div id="waterdivide">
         <img class="wd-img" src="photo13.jpg" alt="画像13">
         <div class="wd-ov"></div>
@@ -2196,7 +2183,6 @@
         </div>
     </div>
 
-    <!-- MAIN STORY COMING SOON -->
     <section id="mainstory" class="sec-navy" style="padding:0">
         <div class="ms-grid">
             <div class="ms-vis">
@@ -2220,7 +2206,6 @@
         </div>
     </section>
 
-    <!-- PHILOSOPHY -->
     <section id="philosophy" class="sec">
         <div class="ph-hdr rv">
             <span class="eyebrow">World View · Philosophy · Life Wisdom</span>
@@ -2252,7 +2237,6 @@
         </div>
     </section>
 
-    <!-- ★ ANIM 3: 星砂 -->
     <section id="starcounter">
         <canvas id="pCvs"></canvas>
         <div class="sc-grid">
@@ -2275,7 +2259,6 @@
         </div>
     </section>
 
-    <!-- SCENE STRIP 2 -->
     <div class="scene-strip" style="height:52vh">
         <img src="photo15.jpg" alt="画像15">
         <div class="strip-ov"></div>
@@ -2285,7 +2268,6 @@
         </div>
     </div>
 
-    <!-- AUTHOR -->
     <section id="author" class="sec sec-dark">
         <div class="au-grid">
             <div class="rv-l">
@@ -2333,7 +2315,6 @@
         </div>
     </section>
 
-    <!-- PORTAL -->
     <section id="portal">
         <img class="portal-bg" src="photo16.jpg" alt="画像16">
         <div class="portal-ov"></div>
@@ -2348,7 +2329,6 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
         <div class="ft">
             <div>
