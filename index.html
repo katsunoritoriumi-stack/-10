@@ -2034,6 +2034,83 @@
             margin-top: 2rem !important;
             margin-bottom: 2rem !important;
         }
+
+        /* 試聴コーナーのコンパクトで洗練されたスタイル */
+        .audio-preview-section {
+            padding: 2.5rem 2rem;
+            text-align: center;
+            background: rgba(18, 20, 28, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--line);
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .audio-preview-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .audio-catch {
+            font-family: "Shippori Mincho B1", serif;
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            font-weight: 500;
+            color: var(--ink);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            letter-spacing: 0.1em;
+        }
+
+        .audio-player-container {
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        audio {
+            width: 100%;
+            max-width: 400px;
+            height: 36px;
+            filter: invert(100%) hue-rotate(180deg) brightness(1.2) contrast(0.9);
+        }
+
+        .audio-supplement-wrap {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--line2);
+            position: relative;
+        }
+
+        .audio-supplement-wrap::after {
+            content: "SPECIAL GIFT";
+            position: absolute;
+            top: -9px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1a1c26;
+            /* var(--bg1)に近い色で背景を隠す */
+            padding: 0 1rem;
+            font-family: "Cormorant", serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.3em;
+            color: var(--gold);
+        }
+
+        .audio-supplement {
+            font-family: "Shippori Mincho B1", serif;
+            font-size: clamp(0.95rem, 1.6vw, 1.2rem);
+            font-weight: 600;
+            color: var(--gold2);
+            line-height: 1.6;
+            letter-spacing: 0.05em;
+        }
     </style>
 </head>
 
@@ -2412,6 +2489,20 @@
             <h2 class="portal-h2"><span>ラストリゾートの</span><br>扉は、すでに…</h2>
             <p class="portal-p">二本のサブストーリーが今すぐnoteで読める。メインストーリーは間もなく公開。この順序で読むことが、多次元体験の鍵だ。</p>
 
+            <!-- 楽曲試聴コーナー：コンパクト版 -->
+            <div class="audio-preview-section rv">
+                <p class="audio-catch">「言葉だけでは伝えきれない世界を、音楽で。メインストーリーの特典”オリジナル楽曲（全8曲）”から、1曲だけ特別に先行公開します。」</p>
+                <div class="audio-player-container">
+                    <audio controls src="LAST RESORT (Space sounds).mp3"></audio>
+                </div>
+                <div class="audio-supplement-wrap">
+                    <p class="audio-supplement">「noteで本編をご購入いただくと、この曲を含む全8曲のオリジナル楽曲をすべてお楽しみいただけます。」</p>
+                </div>
+            </div>
+
+            <a href="https://note.com/kiyohiko_umagami/" target="_blank" class="portal-btn">
+                <span>noteで購入（販売ページへ）</span>
+            </a>
         </div>
     </section>
 
